@@ -33,8 +33,7 @@ public class ArbolBinario {
   // -------------- Métodos  -------------- //
 
   /**
-   * Este método inserta un dato en el árbol en el orden correcto. Está basado en una construcción inorden. Este método
-   * es una completa fumada, NO TOCAR. xd...
+   * Este método inserta un dato en el árbol en el orden correcto. Este método es una completa fumada, NO TOCAR. xd...
    *
    * @param dato Es el dato que se va a insertar como un nodo en el árbol. Es un char
    */
