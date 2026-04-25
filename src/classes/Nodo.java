@@ -1,0 +1,40 @@
+package classes;
+
+public class Nodo {
+  // -------------- Atributos  -------------- //
+  private Nodo hijoIzquierdo;
+  private Nodo hijoDerecho;
+  private char dato;
+
+  // -------------- Constructor  -------------- //
+  public Nodo(char dato) {
+    this.dato = dato;
+    this.hijoIzquierdo = null;
+    this.hijoDerecho = null;
+  }
+
+  // -------------- Getters & Setters  -------------- //
+  public Nodo getHijoIzquierdo() {
+    return hijoIzquierdo;
+  }
+
+  public void setHijoIzquierdo(Nodo hijoIzquierdo) {
+    this.hijoIzquierdo = hijoIzquierdo;
+  }
+
+  public Nodo getHijoDerecho() {
+    return hijoDerecho;
+  }
+
+  public void setHijoDerecho(Nodo hijoDerecho) {
+    this.hijoDerecho = hijoDerecho;
+  }
+
+  public char getDato() {
+    return dato;
+  }
+
+  public void setDato(char dato) {
+    this.dato = dato;
+  }
+}
