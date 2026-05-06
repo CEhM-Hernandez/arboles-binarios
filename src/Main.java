@@ -8,4 +8,11 @@ void main() {
   ArbolBinario arbol = new ArbolBinario(vectorArbol);
 
   System.out.println("Árbol binario ingresado en inorden: " + arbol);
+
+  System.out.print("Mostrar datos con un solo hijo: ");
+  arbol.mostrarDatosUnSoloHijo(arbol.getRaiz());
+  System.out.println("\ncontar datos con un solo hijo: " + arbol.contarDatosUnSoloHijo(arbol.getRaiz(), 0));
+
+  System.out.println("\nCuantos datos tienen solo hijo derecho?: " + arbol.contarDatosSoloHijoDerecho(arbol.getRaiz(),
+      0));
 }
