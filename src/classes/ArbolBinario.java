@@ -159,4 +159,14 @@ public class ArbolBinario {
     return sb.toString();
   }
 
+  public int getAltura(Nodo nodo, int altura) {
+    if (nodo != null) {
+      altura = getAltura(nodo.getHijoIzquierdo(), altura);
+      if (nodo.getHijoDerecho() != null || nodo.getHijoIzquierdo() != null) {
+        altura++;
+      }
+      altura = getAltura(nodo.getHijoDerecho(), altura);
+    }
+    return altura;
+  }
 }
