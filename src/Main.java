@@ -8,4 +8,8 @@ void main() {
   ArbolBinario arbol = new ArbolBinario(vectorArbol);
 
   System.out.println("Árbol binario ingresado en inorden: " + arbol);
+
+  System.out.println("Diagrama del árbol:\n");
+
+  System.out.println("\nAltura del arbol: " + arbol.getAltura(arbol.getRaiz(), 0));
 }

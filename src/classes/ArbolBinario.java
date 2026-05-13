@@ -109,6 +109,41 @@ public class ArbolBinario {
     }
   }
 
+  public void mostrarDatosUnSoloHijo(Nodo nodo) {
+    if (nodo != null) {
+      mostrarDatosUnSoloHijo(nodo.getHijoIzquierdo());
+      if ((nodo.getHijoDerecho() == null && nodo.getHijoIzquierdo() != null) || (nodo.getHijoIzquierdo() == null && nodo.getHijoDerecho() != null)) {
+        System.out.print(nodo.getDato());
+      }
+      mostrarDatosUnSoloHijo(nodo.getHijoDerecho());
+    }
+  }
+
+  public int contarDatosUnSoloHijo(Nodo nodo, int count) {
+    if (nodo != null) {
+      contarDatosUnSoloHijo(nodo.getHijoIzquierdo(), count);
+      if ((nodo.getHijoDerecho() == null && nodo.getHijoIzquierdo() != null) || (nodo.getHijoIzquierdo() == null && nodo.getHijoDerecho() != null)) {
+        count++;
+      }
+      contarDatosUnSoloHijo(nodo.getHijoDerecho(), count);
+    }
+
+    return count;
+
+  }
+
+  public int contarDatosSoloHijoDerecho(Nodo nodo, int count) {
+    if (nodo != null) {
+      count = contarDatosSoloHijoDerecho(nodo.getHijoIzquierdo(), count);
+      if (nodo.getHijoDerecho() != null && nodo.getHijoIzquierdo() == null) {
+        count++;
+      }
+      count = contarDatosSoloHijoDerecho(nodo.getHijoDerecho(), count);
+    }
+
+    return count;
+  }
+
   private void StringBuilderInorden(Nodo nodo, StringBuilder sb) {
     if (nodo != null) {
       StringBuilderInorden(nodo.getHijoIzquierdo(), sb);
@@ -124,4 +159,14 @@ public class ArbolBinario {
     return sb.toString();
   }
 
+  public int getAltura(Nodo nodo, int altura) {
+    if (nodo != null) {
+      altura = getAltura(nodo.getHijoIzquierdo(), altura);
+      if (nodo.getHijoDerecho() != null || nodo.getHijoIzquierdo() != null) {
+        altura++;
+      }
+      altura = getAltura(nodo.getHijoDerecho(), altura);
+    }
+    return altura;
+  }
 }
