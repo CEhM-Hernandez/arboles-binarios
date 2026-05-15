@@ -353,7 +353,7 @@ public class ArbolBinario {
     return buscarNodo(dato) != null;
   }
 
-  private Nodo buscarNodo(char dato) {
+  public Nodo buscarNodo(char dato) {
     Nodo actual = raiz;
 
     while (actual != null) {
@@ -527,5 +527,21 @@ public class ArbolBinario {
   @Override
   public String toString() {
     return recorridoInorden();
+  }
+
+  // =====================================================
+  // Quiz - Contar y mostrar los descendentes de un dato
+  // =====================================================
+
+  public int mostrarDescendentes(Nodo nodo, int count, char DatoInicial) {
+    if (nodo != null) {
+      count = mostrarDescendentes(nodo.getHijoIzquierdo(), count, DatoInicial) + mostrarDescendentes(nodo.getHijoDerecho(),
+          count, DatoInicial);
+      if (nodo.getDato() != DatoInicial) {
+        System.out.println(nodo.getDato());
+        count++;
+      }
+    }
+    return count;
   }
 }

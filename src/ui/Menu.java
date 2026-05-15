@@ -1,6 +1,7 @@
 package ui;
 
 import classes.ArbolBinario;
+import classes.Nodo;
 import utils.Utils;
 
 import javax.swing.*;
@@ -31,6 +32,7 @@ public class Menu {
           + "11. Mostrar altura de un dato\n"
           + "12. Mostrar primos hermanos de un dato\n"
           + "13. Mostrar ancestros de un dato\n"
+          + "14. Mostrar descendentes de un dato\n"
           + "0. Salir\n"
           + "====================================";
 
@@ -86,6 +88,9 @@ public class Menu {
               break;
             case 13:
               mostrarAncestros();
+              break;
+            case 14:
+              mostrarDescendentes();
               break;
             case 0:
               JOptionPane.showMessageDialog(
@@ -341,5 +346,24 @@ public class Menu {
           JOptionPane.WARNING_MESSAGE
       );
     }
+  }
+
+  private void mostrarDescendentes() {
+    char dato = pedirCaracter("Ingresa el dato:");
+
+    if (dato == '\0') {
+      return;
+    }
+
+    Nodo nodo = arbol.buscarNodo(dato);
+
+    String result = String.valueOf(arbol.mostrarDescendentes(nodo, 0, dato));
+
+    JOptionPane.showMessageDialog(
+        null,
+        result,
+        "Descendentes",
+        JOptionPane.INFORMATION_MESSAGE
+    );
   }
 }
