@@ -1,15 +1,35 @@
 import classes.ArbolBinario;
+import ui.Menu;
+import utils.Utils;
 
-import static utils.Utils.userInputToCharArray;
+import javax.swing.*;
 
 void main() {
-  Scanner scanner = new Scanner(System.in);
-  char[] vectorArbol = userInputToCharArray(scanner);
+  char[] vectorArbol = Utils.userInputToCharArray();
+
+  if (vectorArbol.length == 0) {
+    JOptionPane.showMessageDialog(
+        null,
+        "No se creó ningún árbol.",
+        "Proceso cancelado",
+        JOptionPane.INFORMATION_MESSAGE
+    );
+    return;
+  }
+
   ArbolBinario arbol = new ArbolBinario(vectorArbol);
 
-  System.out.println("Árbol binario ingresado en inorden: " + arbol);
+  Utils.mostrarTexto(
+      "Árbol creado",
+      "Árbol creado correctamente.\n\n"
+          + "Recorrido InOrden:\n"
+          + arbol.recorridoInorden()
+          + "\n\n"
+          + arbol.mostrarArbol()
+          + "\nAltura del árbol: "
+          + arbol.getAlturaArbol()
+  );
 
-  System.out.println("Diagrama del árbol:\n");
-
-  System.out.println("\nAltura del arbol: " + arbol.getAltura(arbol.getRaiz(), 0));
+  Menu menu = new Menu(arbol);
+  menu.mostrarMenu();
 }

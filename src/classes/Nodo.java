@@ -1,19 +1,18 @@
 package classes;
 
 public class Nodo {
-  // -------------- Atributos  -------------- //
   private Nodo hijoIzquierdo;
   private Nodo hijoDerecho;
   private char dato;
+  private int altura;
 
-  // -------------- Constructor  -------------- //
   public Nodo(char dato) {
     this.dato = dato;
     this.hijoIzquierdo = null;
     this.hijoDerecho = null;
+    this.altura = 1;
   }
 
-  // -------------- Getters & Setters  -------------- //
   public Nodo getHijoIzquierdo() {
     return hijoIzquierdo;
   }
@@ -36,5 +35,13 @@ public class Nodo {
 
   public void setDato(char dato) {
     this.dato = dato;
+  }
+
+  public int getAltura() {
+    return altura;
+  }
+
+  public void setAltura(int altura) {
+    this.altura = altura;
   }
 }
